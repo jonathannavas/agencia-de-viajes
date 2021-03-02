@@ -4,7 +4,8 @@
   "description": "Primer Proyecto con Node js",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node server"
   },
   "type": "module",
   "author": "Jonathan Navas",
@@ -16,6 +17,7 @@
     "sequelize": "^6.5.0"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "nodemon": "^2.0.7"
   }
 }

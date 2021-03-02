@@ -1,8 +1,11 @@
 import Sequelize from 'sequelize';
 
-const db = new Sequelize('agenciaviajes','root','',{
-    host: 'localhost',
-    port: '3306',
+import dotenv from 'dotenv';
+dotenv.config({path:"variables.env"});
+
+const db = new Sequelize(process.env.BD_NOMBRE,process.env.BD_USER,process.env.BD_PASS,{
+    host: process.env.BD_HOST,
+    port: process.env.DB_PORT,
     dialect: 'mysql',
     define: {
         timestamps: false

@@ -2,6 +2,9 @@ import express from 'express';
 import router  from './routes/index.js';
 import db from './config/db.js';
 
+import dotenv from 'dotenv';
+dotenv.config({path:"variables.env"});
+
 const app = express();
 
 //conectar la base de datos
@@ -12,9 +15,11 @@ db.authenticate()
         console.log(err);
     })
 
-//definir puerto
+//definir puerto y host
 
+const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 4000;
+
 
 //habilitar pug
 app.set('view engine','pug');
@@ -37,6 +42,9 @@ app.use(express.static('public'));
 
 app.use('/',router);
 
-app.listen(port,()=>{
-    console.log(`El servidor esta funcionando  en el puerto ${port}`);
+/* puerto y router para la app */
+
+
+app.listen(port,host, ()=>{
+    console.log('El servidor esta funcionando');
 });
